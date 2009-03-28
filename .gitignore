@@ -1,0 +1,7 @@
+build
+*.pbxuser
+*.mode1v3
+.svn
+.DS_Store
+profile
+External/xmlrpc/XMLRPC.framework/

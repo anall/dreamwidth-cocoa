@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		943F58A40F6CDE2000FC8A33 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943F58A30F6CDE2000FC8A33 /* SenTestingKit.framework */; };
+		94809D090F6CEDB0006C4F9F /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 94809D070F6CEDB0006C4F9F /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94809D0A0F6CEDB0006C4F9F /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94809D080F6CEDB0006C4F9F /* NSStringAdditions.m */; };
+		94809D470F6CEF9F006C4F9F /* NSStringAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94809D0C0F6CEEA7006C4F9F /* NSStringAdditionsTest.m */; };
+		94809D820F6CF0B1006C4F9F /* Dreamwidth.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dreamwidth.framework */; };
+		94809DCA0F6CF26B006C4F9F /* Dreamwidth.h in Headers */ = {isa = PBXBuildFile; fileRef = 94809DC80F6CF26B006C4F9F /* Dreamwidth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480A0EB0F6D0CE9006C4F9F /* DWUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480A0E90F6D0CE9006C4F9F /* DWUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480A0EC0F6D0CE9006C4F9F /* DWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480A0EA0F6D0CE9006C4F9F /* DWUser.m */; };
+		9480A0FA0F6D0E16006C4F9F /* TestDWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480A0F90F6D0E16006C4F9F /* TestDWUser.m */; };
+		9480A4100F6D285F006C4F9F /* DWUser+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480A40F0F6D285F006C4F9F /* DWUser+Internal.h */; settings = {ATTRIBUTES = (); }; };
+		9480A90A0F6DBF6A006C4F9F /* TestDWUserLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480A8F80F6DBED8006C4F9F /* TestDWUserLive.m */; };
+		9480A9400F6DBFCA006C4F9F /* Dreamwidth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dreamwidth.framework */; };
+		9480AA240F6DC903006C4F9F /* DWXMLRPCRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480AA220F6DC903006C4F9F /* DWXMLRPCRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480AA250F6DC903006C4F9F /* DWXMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480AA230F6DC903006C4F9F /* DWXMLRPCRequest.m */; };
+		9480AA270F6DCBB3006C4F9F /* DWXMLRPCRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480AA260F6DCBB3006C4F9F /* DWXMLRPCRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480AD720F6DF34F006C4F9F /* DWUserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480AD710F6DF34F006C4F9F /* DWUserDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480AEFB0F6E13DE006C4F9F /* DWUserpic.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480AEF90F6E13DE006C4F9F /* DWUserpic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480AEFC0F6E13DE006C4F9F /* DWUserpic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480AEFA0F6E13DE006C4F9F /* DWUserpic.m */; };
+		9480AFD20F6E1C1B006C4F9F /* DWJournal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9480AFD00F6E1C1B006C4F9F /* DWJournal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9480AFD30F6E1C1B006C4F9F /* DWJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480AFD10F6E1C1B006C4F9F /* DWJournal.m */; };
+		94A3034F0F7DF10A00A0EDA0 /* XMLRPC.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
+		94A303570F7DF13200A0EDA0 /* XMLRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
+		94A303620F7DF16E00A0EDA0 /* XMLRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
+		94BF1C1C0F7711CA00C6C83A /* DWTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BF1C1A0F7711CA00C6C83A /* DWTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94BF1C1D0F7711CA00C6C83A /* DWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF1C1B0F7711CA00C6C83A /* DWTag.m */; };
+		94BF1D2D0F7718EF00C6C83A /* DWJournal+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		943F59700F6CE30500FC8A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Dreamwidth;
+		};
+		94A303370F7DF0F500A0EDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = XMLRPC;
+		};
+		94A3035F0F7DF15100A0EDA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = XMLRPC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		943F59750F6CE33300FC8A33 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94A3034F0F7DF10A00A0EDA0 /* XMLRPC.framework in Copy Frameworks */,
+				94809D820F6CF0B1006C4F9F /* Dreamwidth.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* Dreamwidth_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dreamwidth_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* Dreamwidth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dreamwidth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		943F58260F6CD9C600FC8A33 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		943F58270F6CD9C600FC8A33 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		943F58A30F6CDE2000FC8A33 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		943F59760F6CE34000FC8A33 /* XMLRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMLRPC.framework; path = ../External/xmlrpc/XMLRPC.framework; sourceTree = SOURCE_ROOT; };
+		94809D070F6CEDB0006C4F9F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		94809D080F6CEDB0006C4F9F /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		94809D0B0F6CEEA7006C4F9F /* NSStringAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditionsTest.h; sourceTree = "<group>"; };
+		94809D0C0F6CEEA7006C4F9F /* NSStringAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditionsTest.m; sourceTree = "<group>"; };
+		94809DC80F6CF26B006C4F9F /* Dreamwidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dreamwidth.h; sourceTree = "<group>"; };
+		9480A0E90F6D0CE9006C4F9F /* DWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWUser.h; sourceTree = "<group>"; };
+		9480A0EA0F6D0CE9006C4F9F /* DWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWUser.m; sourceTree = "<group>"; };
+		9480A0F80F6D0E16006C4F9F /* TestDWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDWUser.h; sourceTree = "<group>"; };
+		9480A0F90F6D0E16006C4F9F /* TestDWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDWUser.m; sourceTree = "<group>"; };
+		9480A40F0F6D285F006C4F9F /* DWUser+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DWUser+Internal.h"; sourceTree = "<group>"; };
+		9480A8F70F6DBED8006C4F9F /* TestDWUserLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDWUserLive.h; sourceTree = "<group>"; };
+		9480A8F80F6DBED8006C4F9F /* TestDWUserLive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDWUserLive.m; sourceTree = "<group>"; };
+		9480AA220F6DC903006C4F9F /* DWXMLRPCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWXMLRPCRequest.h; sourceTree = "<group>"; };
+		9480AA230F6DC903006C4F9F /* DWXMLRPCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWXMLRPCRequest.m; sourceTree = "<group>"; };
+		9480AA260F6DCBB3006C4F9F /* DWXMLRPCRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWXMLRPCRequestDelegate.h; sourceTree = "<group>"; };
+		9480AD710F6DF34F006C4F9F /* DWUserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWUserDelegate.h; sourceTree = "<group>"; };
+		9480AEF90F6E13DE006C4F9F /* DWUserpic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWUserpic.h; sourceTree = "<group>"; };
+		9480AEFA0F6E13DE006C4F9F /* DWUserpic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWUserpic.m; sourceTree = "<group>"; };
+		9480AFD00F6E1C1B006C4F9F /* DWJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWJournal.h; sourceTree = "<group>"; };
+		9480AFD10F6E1C1B006C4F9F /* DWJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWJournal.m; sourceTree = "<group>"; };
+		94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XMLRPC.xcodeproj; path = ../XMLRPC/XMLRPC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		94BF1C1A0F7711CA00C6C83A /* DWTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTag.h; sourceTree = "<group>"; };
+		94BF1C1B0F7711CA00C6C83A /* DWTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTag.m; sourceTree = "<group>"; };
+		94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DWJournal+Internal.h"; sourceTree = "<group>"; };
+		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A303620F7DF16E00A0EDA0 /* XMLRPC.framework in Frameworks */,
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		943F58230F6CD9C600FC8A33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A303570F7DF13200A0EDA0 /* XMLRPC.framework in Frameworks */,
+				9480A9400F6DBFCA006C4F9F /* Dreamwidth.framework in Frameworks */,
+				943F58A40F6CDE2000FC8A33 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* Dreamwidth.framework */,
+				943F58260F6CD9C600FC8A33 /* Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Dreamwidth */ = {
+			isa = PBXGroup;
+			children = (
+				94809D050F6CED6A006C4F9F /* Other Projects */,
+				943F581E0F6CD99F00FC8A33 /* Test Cases */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = Dreamwidth;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				943F58270F6CD9C600FC8A33 /* Tests-Info.plist */,
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				94809D070F6CEDB0006C4F9F /* NSStringAdditions.h */,
+				94809D080F6CEDB0006C4F9F /* NSStringAdditions.m */,
+				94809DC80F6CF26B006C4F9F /* Dreamwidth.h */,
+				9480A0E90F6D0CE9006C4F9F /* DWUser.h */,
+				9480AD710F6DF34F006C4F9F /* DWUserDelegate.h */,
+				9480A0EA0F6D0CE9006C4F9F /* DWUser.m */,
+				9480A40F0F6D285F006C4F9F /* DWUser+Internal.h */,
+				9480AA220F6DC903006C4F9F /* DWXMLRPCRequest.h */,
+				9480AA230F6DC903006C4F9F /* DWXMLRPCRequest.m */,
+				9480AA260F6DCBB3006C4F9F /* DWXMLRPCRequestDelegate.h */,
+				9480AEF90F6E13DE006C4F9F /* DWUserpic.h */,
+				9480AEFA0F6E13DE006C4F9F /* DWUserpic.m */,
+				9480AFD00F6E1C1B006C4F9F /* DWJournal.h */,
+				9480AFD10F6E1C1B006C4F9F /* DWJournal.m */,
+				94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */,
+				94BF1C1A0F7711CA00C6C83A /* DWTag.h */,
+				94BF1C1B0F7711CA00C6C83A /* DWTag.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943F58A30F6CDE2000FC8A33 /* SenTestingKit.framework */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943F59760F6CE34000FC8A33 /* XMLRPC.framework */,
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E79907B2D74100F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* Dreamwidth_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		943F581E0F6CD99F00FC8A33 /* Test Cases */ = {
+			isa = PBXGroup;
+			children = (
+				94809D0B0F6CEEA7006C4F9F /* NSStringAdditionsTest.h */,
+				94809D0C0F6CEEA7006C4F9F /* NSStringAdditionsTest.m */,
+				9480A0F80F6D0E16006C4F9F /* TestDWUser.h */,
+				9480A0F90F6D0E16006C4F9F /* TestDWUser.m */,
+				9480A8F70F6DBED8006C4F9F /* TestDWUserLive.h */,
+				9480A8F80F6DBED8006C4F9F /* TestDWUserLive.m */,
+			);
+			name = "Test Cases";
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		94809D050F6CED6A006C4F9F /* Other Projects */ = {
+			isa = PBXGroup;
+			children = (
+				94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */,
+			);
+			name = "Other Projects";
+			sourceTree = "<group>";
+		};
+		94A303310F7DF0F400A0EDA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9480A4100F6D285F006C4F9F /* DWUser+Internal.h in Headers */,
+				94809D090F6CEDB0006C4F9F /* NSStringAdditions.h in Headers */,
+				94809DCA0F6CF26B006C4F9F /* Dreamwidth.h in Headers */,
+				9480A0EB0F6D0CE9006C4F9F /* DWUser.h in Headers */,
+				9480AA240F6DC903006C4F9F /* DWXMLRPCRequest.h in Headers */,
+				9480AA270F6DCBB3006C4F9F /* DWXMLRPCRequestDelegate.h in Headers */,
+				9480AD720F6DF34F006C4F9F /* DWUserDelegate.h in Headers */,
+				9480AEFB0F6E13DE006C4F9F /* DWUserpic.h in Headers */,
+				9480AFD20F6E1C1B006C4F9F /* DWJournal.h in Headers */,
+				94BF1C1C0F7711CA00C6C83A /* DWTag.h in Headers */,
+				94BF1D2D0F7718EF00C6C83A /* DWJournal+Internal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8DC2EF4F0486A6940098B216 /* Dreamwidth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Dreamwidth" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94A303600F7DF15100A0EDA0 /* PBXTargetDependency */,
+			);
+			name = Dreamwidth;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = Dreamwidth;
+			productReference = 8DC2EF5B0486A6940098B216 /* Dreamwidth.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		943F58250F6CD9C600FC8A33 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 943F582A0F6CD9C700FC8A33 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				943F58210F6CD9C600FC8A33 /* Resources */,
+				943F58220F6CD9C600FC8A33 /* Sources */,
+				943F58230F6CD9C600FC8A33 /* Frameworks */,
+				943F58240F6CD9C600FC8A33 /* ShellScript */,
+				943F59750F6CE33300FC8A33 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				943F59710F6CE30500FC8A33 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 943F58260F6CD9C600FC8A33 /* Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Dreamwidth" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* Dreamwidth */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 94A303310F7DF0F400A0EDA0 /* Products */;
+					ProjectRef = 94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* Dreamwidth */,
+				943F58250F6CD9C600FC8A33 /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XMLRPC.framework;
+			remoteRef = 94A303370F7DF0F500A0EDA0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		943F58210F6CD9C600FC8A33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		943F58240F6CD9C600FC8A33 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94809D0A0F6CEDB0006C4F9F /* NSStringAdditions.m in Sources */,
+				9480A0EC0F6D0CE9006C4F9F /* DWUser.m in Sources */,
+				9480AA250F6DC903006C4F9F /* DWXMLRPCRequest.m in Sources */,
+				9480AEFC0F6E13DE006C4F9F /* DWUserpic.m in Sources */,
+				9480AFD30F6E1C1B006C4F9F /* DWJournal.m in Sources */,
+				94BF1C1D0F7711CA00C6C83A /* DWTag.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		943F58220F6CD9C600FC8A33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9480A90A0F6DBF6A006C4F9F /* TestDWUserLive.m in Sources */,
+				94809D470F6CEF9F006C4F9F /* NSStringAdditionsTest.m in Sources */,
+				9480A0FA0F6D0E16006C4F9F /* TestDWUser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		943F59710F6CE30500FC8A33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* Dreamwidth */;
+			targetProxy = 943F59700F6CE30500FC8A33 /* PBXContainerItemProxy */;
+		};
+		94A303600F7DF15100A0EDA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XMLRPC;
+			targetProxy = 94A3035F0F7DF15100A0EDA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dreamwidth_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = Dreamwidth;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dreamwidth_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				PRODUCT_NAME = Dreamwidth;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				SYMROOT = ../build;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				SYMROOT = ../build;
+			};
+			name = Release;
+		};
+		943F58280F6CD9C700FC8A33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				TEST_RIG = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		943F58290F6CD9C700FC8A33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				TEST_RIG = "";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Dreamwidth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Dreamwidth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		943F582A0F6CD9C700FC8A33 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				943F58280F6CD9C700FC8A33 /* Debug */,
+				943F58290F6CD9C700FC8A33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
