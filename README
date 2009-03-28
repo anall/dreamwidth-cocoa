@@ -1,0 +1,4 @@
+Note:
+This framework will currently not work alone, or build as is.
+This assumes that in the parent directory, git://github.com/anall/xmlrpc.git is cloned as XMLRPC.
+Also, the build directory is assumed to be ../build.
