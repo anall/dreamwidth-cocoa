@@ -16,6 +16,16 @@
 @dynamic loaded,inProgress;
 #endif
 
+- (void) dealloc
+{
+    [user release];
+    [username release];
+    [tags release];
+    
+    [super dealloc];
+}
+
+
 #pragma mark Public
 
 - (id) init {

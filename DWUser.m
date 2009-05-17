@@ -48,6 +48,21 @@
 @dynamic fullName, userpics, defaultUserpic, journals;
 #endif
 
+-(void)dealloc {
+    [md5Password release];
+    [endpointURL release];
+    
+    [faultCode release];
+    [faultString release];
+    
+    [fullName release];
+    [userpics release];
+    [defaultUserpic release];
+    [journals release];
+    
+    [super dealloc];
+}
+
 #pragma mark Public
 
 +(DWUser *)userWithUsername:(NSString *)username andPassword:(NSString *)password {

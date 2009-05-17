@@ -53,6 +53,17 @@ static BOOL _synchronous;
 @dynamic request, complete, failed;
 #endif
 
+-(void)dealloc
+{
+    [user release];
+    [method release];
+    [args release];
+    
+    [request release];
+    
+    [super dealloc];
+}
+
 +(BOOL)synchronous {
     return _synchronous;
 }

@@ -26,6 +26,14 @@
 @dynamic securityLevel;
 #endif
 
+- (void) dealloc
+{
+    [name release];
+    [securityLevel release];
+    [super dealloc];
+}
+
+
 -(void)setName:(NSString *)_value {
     [self willChangeValueForKey:@"name"];
     [_value retain];

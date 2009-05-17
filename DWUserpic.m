@@ -17,6 +17,13 @@
 @dynamic url, keywords;
 #endif
 
+-(void)dealloc {
+    [url release];
+    [keywords release];
+    
+    [super dealloc];
+}
+
 - (id) initWithURL:(NSURL *)_url {
     self = [super init];
     if (self != nil) {
