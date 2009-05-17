@@ -6,16 +6,12 @@
 #import "DWJournal.h"
 #import "DWJournal+Internal.h"
 
-@interface DWJournal ()
-@property (nonatomic, retain, readwrite) NSString *username;
-@property (readwrite) BOOL inProgress;
-
-@end
 
 @interface DWUser ()
-@property (readwrite) BOOL loggedIn;
-@property (readwrite) BOOL usernameInvalid;
-@property (readwrite) BOOL passwordInvalid;
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
+@property (nonatomic, readwrite) BOOL loggedIn;
+@property (nonatomic, readwrite) BOOL usernameInvalid;
+@property (nonatomic, readwrite) BOOL passwordInvalid;
 
 @property (nonatomic, retain, readwrite) NSNumber *faultCode;
 @property (nonatomic, retain, readwrite) NSString *faultString;
@@ -24,16 +20,33 @@
 @property (nonatomic, retain, readwrite) NSDictionary *userpics;
 @property (nonatomic, retain, readwrite) DWUserpic *defaultUserpic;
 @property (nonatomic, retain, readwrite) NSDictionary *journals;
+#endif
 
 -(BOOL)parseLoginResponse:(XMLRPCResponse *)response;
 -(void)loginRequest:(DWXMLRPCRequest *)req withArg:(id)arg error:(NSError *)error orResponse:(XMLRPCResponse *)resp;
 @end
 
+@interface DWUser (GenPropsI)
+-(void)setLoggedIn:(BOOL)val;
+-(void)setUsernameInvalid:(BOOL)val;
+-(void)setPasswordInvalid:(BOOL)val;
+
+-(void)setFaultCode:(NSNumber *)val;
+-(void)setFaultString:(NSString *)val;
+
+-(void)setFullName:(NSString *)val;
+-(void)setUserpics:(NSDictionary *)val;
+-(void)setDefaultUserpic:(DWUserpic *)val;
+-(void)setJournals:(NSDictionary *)val;
+@end
+
 @implementation DWUser
-@synthesize md5Password, endpointURL;
-@synthesize usernameInvalid, passwordInvalid, loggedIn;
-@synthesize faultCode, faultString;
-@synthesize fullName, userpics, defaultUserpic, journals;
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
+@dynamic md5Password, endpointURL;
+@dynamic usernameInvalid, passwordInvalid, loggedIn;
+@dynamic faultCode, faultString;
+@dynamic fullName, userpics, defaultUserpic, journals;
+#endif
 
 #pragma mark Public
 
@@ -207,9 +220,9 @@
         NSArray *usejournals = [obj objectForKey:@"usejournals"];
         if (usejournals) {
             NSMutableDictionary *_journals = [NSMutableDictionary dictionary];
-            for (NSString *journal in usejournals) {
-                [_journals setObject:[DWJournal journalWithUsername:journal andUser:self] forKey:journal];
-            }
+            //for (NSString *journal in usejournals) {
+             //   [_journals setObject:[DWJournal journalWithUsername:journal andUser:self] forKey:journal];
+            //}
             self.journals = _journals;
         }
         [super load];

@@ -4,7 +4,10 @@
 
 // FIXME: Refactor tests to not need this.
 @interface DWUser ()
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
 @property (nonatomic, retain, readwrite) NSString *username;
+#endif
+-(void)setUsername:(NSString *)val;
 @end
 
 @interface TestDWUserLive ()

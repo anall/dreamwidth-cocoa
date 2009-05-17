@@ -6,30 +6,52 @@ static BOOL _synchronous;
 
 // FIXME: Test this
 @interface DWXMLRPCRequest ()
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
 @property (nonatomic, retain, readwrite) DWUser *user;
 @property (nonatomic, retain, readwrite) NSString *method;
 @property (nonatomic, retain, readwrite) NSDictionary *args;
 
-@property (readwrite) id<DWXMLRPCRequestDelegate> delegate;
-@property (readwrite) id object;
-@property (readwrite) SEL selector;
+@property (nonatomic, assign, readwrite) id<DWXMLRPCRequestDelegate> delegate;
+@property (nonatomic, assign, readwrite) id object;
+@property (nonatomic, assign, readwrite) SEL selector;
 
-@property (nonatomic, readwrite) id cbArg;
+@property (nonatomic, assign, readwrite) id cbArg;
 
 @property (nonatomic, retain) XMLRPCRequest *request;
 
-@property (readwrite) BOOL complete;
-@property (readwrite) BOOL failed;
+@property (nonatomic, readwrite) BOOL complete;
+@property (nonatomic, readwrite) BOOL failed;
+#endif
 
 -(void)call;
 -(void)callRequest:(XMLRPCRequest *)req;
 @end
 
-@implementation DWXMLRPCRequest
-@synthesize user, method, args;
-@synthesize delegate, object, selector, cbArg;
-@synthesize request, complete, failed;
+@interface DWXMLRPCRequest (GenPropsI)
+-(void)setUser:(DWUser *)val;
+-(void)setMethod:(NSString *)val;
+-(void)setArgs:(NSDictionary *)val;
 
+-(void)setDelegate:(id<DWXMLRPCRequestDelegate>)val;
+-(void)setObject:(id)val;
+-(void)setSelector:(SEL)val;
+
+-(void)setCbArg:(id)val;
+
+-(XMLRPCRequest *)request;
+-(void)setRequest:(XMLRPCRequest *)val;
+
+-(void)setComplete:(BOOL)val;
+-(void)setFailed:(BOOL)val;
+
+@end
+
+@implementation DWXMLRPCRequest
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
+@dynamic user, method, args;
+@dynamic delegate, object, selector, cbArg;
+@dynamic request, complete, failed;
+#endif
 
 +(BOOL)synchronous {
     return _synchronous;

@@ -9,25 +9,12 @@
 
 #define NUM_TASKS 1
 
-@interface DWJournal ()
-@property (nonatomic, retain, readwrite) NSString *username;
-@property (nonatomic, retain, readwrite) DWUser *user;
-@property (nonatomic, retain, readwrite) NSDictionary *tags;
-
-@property (readwrite) BOOL loaded;
-@property (readwrite) BOOL inProgress;
-
--(BOOL)maybeDone;
--(BOOL)parseTagResponse:(XMLRPCResponse *)resp;
-
--(void)tagsRequest:(DWXMLRPCRequest *)req withArg:(id)arg error:(NSError *)error orResponse:(XMLRPCResponse *)resp;
-
-@end
-
 @implementation DWJournal
-@synthesize delegate;
-@synthesize user, username, tags;
-@synthesize loaded, inProgress;
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
+@dynamic user, username, tags;
+@dynamic delegate;
+@dynamic loaded,inProgress;
+#endif
 
 #pragma mark Public
 
@@ -89,9 +76,13 @@
     NSMutableDictionary *_tags = [NSMutableDictionary dictionary];
     NSDictionary *tag_data = [[resp object] objectForKey:@"tags"];
     if ( tag_data == nil ) return NO;
-    for (NSDictionary *data in tag_data) {
-        DWTag *tag = [DWTag tagWithDictionary:data];
-        [_tags setObject:tag forKey:tag.name];
+    {
+        NSEnumerator *enumerator = [tag_data objectEnumerator];
+        NSDictionary *data;
+        while ((data = [enumerator nextObject])) {
+            DWTag *tag = [DWTag tagWithDictionary:data];
+            [_tags setObject:tag forKey:tag.name];
+        }
     }
     self.tags = _tags;
     return YES;

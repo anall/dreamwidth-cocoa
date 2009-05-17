@@ -11,3 +11,4 @@
 -(NSDictionary *)prepareArgs:(NSDictionary *)inVal;
 -(NSDictionary *)prepareArgs:(NSDictionary *)inVal withChallenge:(NSString *)challenge;
 @end
+

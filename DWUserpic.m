@@ -1,18 +1,27 @@
 #import "DWUserpic.h"
 
 @interface DWUserpic ()
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
 @property (nonatomic, retain, readwrite) NSURL *url;
 @property (nonatomic, retain, readwrite) NSSet *keywords;
+#endif
+@end
+
+@interface DWUserpic (GenPropsI)
+-(void)setUrl:(NSURL *)val;
+-(void)setKeywords:(NSSet *)val;
 @end
 
 @implementation DWUserpic
-@synthesize url, keywords;
+#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
+@dynamic url, keywords;
+#endif
 
 - (id) initWithURL:(NSURL *)_url {
     self = [super init];
     if (self != nil) {
         self.url = _url;
-        self.keywords = [NSSet set];
+        self.keywords = [NSMutableSet set];
     }
     return self;
 }
@@ -22,7 +31,7 @@
 }
 
 -(void)addKeyword:(NSString *)keyword {
-    self.keywords = [self.keywords setByAddingObject:keyword];
+    [(NSMutableSet *)self.keywords addObject:keyword];
 }
 
 @end
