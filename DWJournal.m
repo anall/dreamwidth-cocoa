@@ -6,15 +6,11 @@
 #import "DWXMLRPCRequest.h"
 #import "DWTag.h"
 #import <XMLRPC/XMLRPC.h>
+#import "InternalDefines.h"
 
 #define NUM_TASKS 1
 
 @implementation DWJournal
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@dynamic user, username, tags;
-@dynamic delegate;
-@dynamic loaded,inProgress;
-#endif
 
 - (void) dealloc
 {
@@ -38,8 +34,8 @@
 -(id)initWithUsername:(NSString *)_name andUser:(DWUser *)_user {
     self = [self init];
     if (self != nil) {
-        self.username = _name;
-        self.user = _user;
+        username = [_name retain];
+        user = [_user retain];
     }
     return self;
 }
@@ -85,6 +81,7 @@
 -(BOOL)parseTagResponse:(XMLRPCResponse *)resp {
     NSMutableDictionary *_tags = [NSMutableDictionary dictionary];
     NSDictionary *tag_data = [[resp object] objectForKey:@"tags"];
+    ____raw_tags = [[resp object] retain];
     if ( tag_data == nil ) return NO;
     {
         NSEnumerator *enumerator = [tag_data objectEnumerator];
@@ -94,7 +91,7 @@
             [_tags setObject:tag forKey:tag.name];
         }
     }
-    self.tags = _tags;
+    tags = [_tags copy];
     return YES;
 }
 
@@ -107,4 +104,22 @@
     }
     return YES;
 }
+
+#pragma mark Getters/Setters
+
+-(DWUser *)user { return user; }
+
+-(NSString *)username { return username; }
+
+-(NSDictionary *)tags { return tags; }
+
+-(id<DWUserDelegate>)delegate { return delegate; }
+-(void)setDelegate:(id<DWUserDelegate>)val { SETTER_ASSIGN(delegate); }
+
+-(BOOL)loaded { return loaded; }
+-(void)setLoaded:(BOOL)val { SETTER_ASSIGN(loaded); }
+
+-(BOOL)inProgress { return inProgress; }
+-(void)setInProgress:(BOOL)val { SETTER_ASSIGN(inProgress); }
+
 @end

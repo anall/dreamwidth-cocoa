@@ -32,9 +32,8 @@
 		94A3034F0F7DF10A00A0EDA0 /* XMLRPC.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
 		94A303570F7DF13200A0EDA0 /* XMLRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
 		94A303620F7DF16E00A0EDA0 /* XMLRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A303380F7DF0F500A0EDA0 /* XMLRPC.framework */; };
-		94ACD4670FBFA6A600F263CB /* genprops.rb in Resources */ = {isa = PBXBuildFile; fileRef = 94ACD4660FBFA6A600F263CB /* genprops.rb */; };
-		94ACD5DF0FBFC29300F263CB /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ACD5DE0FBFC29300F263CB /* Properties.m */; };
 		94ACD74E0FBFE0E100F263CB /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ACD74D0FBFE0E100F263CB /* libcrypto.dylib */; };
+		94ACD8740FBFE83000F263CB /* InternalDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 94ACD8730FBFE83000F263CB /* InternalDefines.h */; };
 		94BF1C1C0F7711CA00C6C83A /* DWTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BF1C1A0F7711CA00C6C83A /* DWTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94BF1C1D0F7711CA00C6C83A /* DWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF1C1B0F7711CA00C6C83A /* DWTag.m */; };
 		94BF1D2D0F7718EF00C6C83A /* DWJournal+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */; };
@@ -112,9 +111,8 @@
 		9480AFD00F6E1C1B006C4F9F /* DWJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWJournal.h; sourceTree = "<group>"; };
 		9480AFD10F6E1C1B006C4F9F /* DWJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWJournal.m; sourceTree = "<group>"; };
 		94A303300F7DF0F400A0EDA0 /* XMLRPC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XMLRPC.xcodeproj; path = ../XMLRPC/XMLRPC.xcodeproj; sourceTree = SOURCE_ROOT; };
-		94ACD4660FBFA6A600F263CB /* genprops.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = genprops.rb; sourceTree = "<group>"; };
-		94ACD5DE0FBFC29300F263CB /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		94ACD74D0FBFE0E100F263CB /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		94ACD8730FBFE83000F263CB /* InternalDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternalDefines.h; sourceTree = "<group>"; };
 		94BF1C1A0F7711CA00C6C83A /* DWTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTag.h; sourceTree = "<group>"; };
 		94BF1C1B0F7711CA00C6C83A /* DWTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTag.m; sourceTree = "<group>"; };
 		94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DWJournal+Internal.h"; sourceTree = "<group>"; };
@@ -191,6 +189,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				94ACD8730FBFE83000F263CB /* InternalDefines.h */,
 				94809D070F6CEDB0006C4F9F /* NSStringAdditions.h */,
 				94809D080F6CEDB0006C4F9F /* NSStringAdditions.m */,
 				94809DC80F6CF26B006C4F9F /* Dreamwidth.h */,
@@ -208,7 +207,6 @@
 				94BF1D2C0F7718EF00C6C83A /* DWJournal+Internal.h */,
 				94BF1C1A0F7711CA00C6C83A /* DWTag.h */,
 				94BF1C1B0F7711CA00C6C83A /* DWTag.m */,
-				94ACD5DE0FBFC29300F263CB /* Properties.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				32DBCF5E0370ADEE00C91783 /* Dreamwidth_Prefix.pch */,
-				94ACD4660FBFA6A600F263CB /* genprops.rb */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -290,6 +287,7 @@
 				9480AFD20F6E1C1B006C4F9F /* DWJournal.h in Headers */,
 				94BF1C1C0F7711CA00C6C83A /* DWTag.h in Headers */,
 				94BF1D2D0F7718EF00C6C83A /* DWJournal+Internal.h in Headers */,
+				94ACD8740FBFE83000F263CB /* InternalDefines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +298,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Dreamwidth" */;
 			buildPhases = (
-				94ACD8480FBFE56700F263CB /* ShellScript */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
@@ -378,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
-				94ACD4670FBFA6A600F263CB /* genprops.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,19 +401,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		94ACD8480FBFE56700F263CB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/bin/env ruby";
-			shellScript = "require 'genprops.rb'";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -431,7 +414,6 @@
 				9480AEFC0F6E13DE006C4F9F /* DWUserpic.m in Sources */,
 				9480AFD30F6E1C1B006C4F9F /* DWJournal.m in Sources */,
 				94BF1C1D0F7711CA00C6C83A /* DWTag.m in Sources */,
-				94ACD5DF0FBFC29300F263CB /* Properties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,13 +503,13 @@
 				ADDITIONAL_SDKS = "";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 				SYMROOT = ../build;
 			};
 			name = Debug;
@@ -538,11 +520,11 @@
 				ADDITIONAL_SDKS = "";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 				SYMROOT = ../build;
 			};
 			name = Release;

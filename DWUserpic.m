@@ -1,21 +1,7 @@
 #import "DWUserpic.h"
-
-@interface DWUserpic ()
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@property (nonatomic, retain, readwrite) NSURL *url;
-@property (nonatomic, retain, readwrite) NSSet *keywords;
-#endif
-@end
-
-@interface DWUserpic (GenPropsI)
--(void)setUrl:(NSURL *)val;
--(void)setKeywords:(NSSet *)val;
-@end
+#import "InternalDefines.h"
 
 @implementation DWUserpic
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@dynamic url, keywords;
-#endif
 
 -(void)dealloc {
     [url release];
@@ -27,8 +13,8 @@
 - (id) initWithURL:(NSURL *)_url {
     self = [super init];
     if (self != nil) {
-        self.url = _url;
-        self.keywords = [NSMutableSet set];
+        url = [_url retain];
+        keywords = [[NSMutableSet alloc] init];
     }
     return self;
 }
@@ -38,7 +24,12 @@
 }
 
 -(void)addKeyword:(NSString *)keyword {
-    [(NSMutableSet *)self.keywords addObject:keyword];
+    [keywords addObject:keyword];
 }
+
+#pragma mark Getters/Setters
+
+-(NSURL *)url { return url; }
+-(NSSet *)keywords { return [[keywords copy] autorelease]; }
 
 @end

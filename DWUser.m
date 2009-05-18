@@ -5,28 +5,12 @@
 #import "DWUserpic.h"
 #import "DWJournal.h"
 #import "DWJournal+Internal.h"
-
+#import "InternalDefines.h"
 
 @interface DWUser ()
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@property (nonatomic, readwrite) BOOL loggedIn;
-@property (nonatomic, readwrite) BOOL usernameInvalid;
-@property (nonatomic, readwrite) BOOL passwordInvalid;
-
-@property (nonatomic, retain, readwrite) NSNumber *faultCode;
-@property (nonatomic, retain, readwrite) NSString *faultString;
-
-@property (nonatomic, retain, readwrite) NSString *fullName;
-@property (nonatomic, retain, readwrite) NSDictionary *userpics;
-@property (nonatomic, retain, readwrite) DWUserpic *defaultUserpic;
-@property (nonatomic, retain, readwrite) NSDictionary *journals;
-#endif
-
 -(BOOL)parseLoginResponse:(XMLRPCResponse *)response;
 -(void)loginRequest:(DWXMLRPCRequest *)req withArg:(id)arg error:(NSError *)error orResponse:(XMLRPCResponse *)resp;
-@end
 
-@interface DWUser (GenPropsI)
 -(void)setLoggedIn:(BOOL)val;
 -(void)setUsernameInvalid:(BOOL)val;
 -(void)setPasswordInvalid:(BOOL)val;
@@ -41,12 +25,6 @@
 @end
 
 @implementation DWUser
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@dynamic md5Password, endpointURL;
-@dynamic usernameInvalid, passwordInvalid, loggedIn;
-@dynamic faultCode, faultString;
-@dynamic fullName, userpics, defaultUserpic, journals;
-#endif
 
 -(void)dealloc {
     [md5Password release];
@@ -78,7 +56,7 @@
 }
 
 -(id)initWithUsername:(NSString *)_username andHashedPassword:(NSString *)password {
-    self = [super init];
+    self = [super initWithUsername:_username andUser:nil];
     if (self != nil) {
         self.usernameInvalid = NO;
         self.passwordInvalid = NO;
@@ -86,7 +64,6 @@
         self.inProgress = NO;
         self.endpointURL = [NSURL URLWithString:@"http://www.dreamwidth.org/interface/xmlrpc"];
         
-        self.username = _username;
         self.md5Password = password;
     }
     return self;
@@ -116,13 +93,6 @@
 
 #pragma mark Internal
 
--(DWUser *)user {
-    return self;
-}
-
--(void)setUser:(DWUser *)user {
-    return;
-}
 
 -(void)callDelegateMethodWasFailure:(BOOL)failed {
     [super callDelegateMethodWasFailure:failed];
@@ -244,5 +214,42 @@
         return YES;
     }
 }
+
+#pragma mark Getters/Setters
+
+// From DWJournal
+-(DWUser *)user { return self; }
+
+-(NSString *)md5Password { return md5Password; }
+-(void)setMd5Password:(NSString *)val { SETTER_RETAIN(md5Password); }
+
+-(NSURL *)endpointURL { return endpointURL; }
+-(void)setEndpointURL:(NSURL *)val { SETTER_RETAIN(endpointURL); }
+
+-(BOOL)loggedIn { return loggedIn; }
+-(void)setLoggedIn:(BOOL)val { SETTER_ASSIGN(loggedIn); }
+
+-(BOOL)usernameInvalid { return usernameInvalid; }
+-(void)setUsernameInvalid:(BOOL)val { SETTER_ASSIGN(usernameInvalid); }
+
+-(BOOL)passwordInvalid { return passwordInvalid; }
+-(void)setPasswordInvalid:(BOOL)val { SETTER_ASSIGN(passwordInvalid); }
+
+-(NSNumber *)faultCode { return faultCode; }
+-(void)setFaultCode:(NSNumber *)val { SETTER_RETAIN(faultCode); }
+
+-(NSString *)faultString { return faultString; }
+-(void)setFaultString:(NSString *)val { SETTER_RETAIN(faultString); }
+
+-(NSString *)fullName { return fullName; }
+-(void)setFullName:(NSString *)val { SETTER_RETAIN(fullName); }
+-(NSDictionary *)userpics { return userpics; }
+-(void)setUserpics:(NSDictionary *)val { SETTER_RETAIN(userpics); }
+
+-(DWUserpic *)defaultUserpic { return defaultUserpic; }
+-(void)setDefaultUserpic:(DWUserpic *)val { SETTER_RETAIN(defaultUserpic); }
+
+-(NSDictionary *)journals { return journals; }
+-(void)setJournals:(NSDictionary *)val { SETTER_RETAIN(journals); }
 
 @end

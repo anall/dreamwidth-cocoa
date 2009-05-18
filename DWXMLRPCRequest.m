@@ -1,57 +1,29 @@
 #import "DWXMLRPCRequest.h"
 #import "DWUser.h"
 #import "DWUser+Internal.h"
+#import "InternalDefines.h"
 
 static BOOL _synchronous;
 
 // FIXME: Test this
 @interface DWXMLRPCRequest ()
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@property (nonatomic, retain, readwrite) DWUser *user;
-@property (nonatomic, retain, readwrite) NSString *method;
-@property (nonatomic, retain, readwrite) NSDictionary *args;
-
-@property (nonatomic, assign, readwrite) id<DWXMLRPCRequestDelegate> delegate;
-@property (nonatomic, assign, readwrite) id object;
-@property (nonatomic, assign, readwrite) SEL selector;
-
-@property (nonatomic, assign, readwrite) id cbArg;
-
-@property (nonatomic, retain) XMLRPCRequest *request;
-
-@property (nonatomic, readwrite) BOOL complete;
-@property (nonatomic, readwrite) BOOL failed;
-#endif
-
 -(void)call;
 -(void)callRequest:(XMLRPCRequest *)req;
-@end
-
-@interface DWXMLRPCRequest (GenPropsI)
--(void)setUser:(DWUser *)val;
--(void)setMethod:(NSString *)val;
--(void)setArgs:(NSDictionary *)val;
-
--(void)setDelegate:(id<DWXMLRPCRequestDelegate>)val;
--(void)setObject:(id)val;
--(void)setSelector:(SEL)val;
-
--(void)setCbArg:(id)val;
 
 -(XMLRPCRequest *)request;
 -(void)setRequest:(XMLRPCRequest *)val;
 
+-(void)setArgs:(NSDictionary *)val;
+
 -(void)setComplete:(BOOL)val;
 -(void)setFailed:(BOOL)val;
+
+-(id)initAsyncRequest:(DWUser *)_user withMethod:(NSString *)_method andArgs:(NSDictionary *)_args withDelegate:(id<DWXMLRPCRequestDelegate>)_what andArg:(id)_arg;
+-(id)initAsyncRequest:(DWUser *)_user withMethod:(NSString *)_method andArgs:(NSDictionary *)_args withObject:(id)_what andSelector:(SEL)_sel andArg:(id)_arg;
 
 @end
 
 @implementation DWXMLRPCRequest
-#if (MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4)
-@dynamic user, method, args;
-@dynamic delegate, object, selector, cbArg;
-@dynamic request, complete, failed;
-#endif
 
 -(void)dealloc
 {
@@ -74,8 +46,7 @@ static BOOL _synchronous;
 
 #pragma mark Public
 
-- (id) init
-{
+- (id) init {
     self = [super init];
     if (self != nil) {
         hasChallenge = NO;
@@ -84,29 +55,39 @@ static BOOL _synchronous;
     return self;
 }
 
+- (id) initAsyncRequest:(DWUser *)_user withMethod:(NSString *)_method andArgs:(NSDictionary *)_args withDelegate:(id<DWXMLRPCRequestDelegate>)_what andArg:(id)_arg {
+    self = [self init];
+    if (self != nil) {
+        user = [_user retain];
+        method = [_method copy];
+        args = [_args copy];
+        delegate = _what;
+        cbArg = _arg;
+    }
+    return self;
+}
+- (id) initAsyncRequest:(DWUser *)_user withMethod:(NSString *)_method andArgs:(NSDictionary *)_args withObject:(id)_what andSelector:(SEL)_sel andArg:(id)_arg {
+    self = [self init];
+    if (self != nil) {
+        user = [_user retain];
+        method = [_method copy];
+        args = [_args copy];
+        object = _what;
+        selector = _sel;
+        cbArg = _arg;
+    }
+    return self;
+}
+
+ 
 +(DWXMLRPCRequest *)asyncRequestFor:(DWUser *)user withMethod:(NSString *)method andArgs:(NSDictionary *)args withDelegate:(id<DWXMLRPCRequestDelegate>)what andArg:(id)arg {
-    DWXMLRPCRequest *req = [DWXMLRPCRequest new];
-    req.user = user;
-    req.method = method;
-    req.args = args;
-    
-    req.delegate = what;
-    req.cbArg = arg;
-    
+    DWXMLRPCRequest *req = [[DWXMLRPCRequest alloc] initAsyncRequest:user withMethod:method andArgs:args withDelegate:what andArg:arg];
     [req call];
     return req;
 }
 
 +(DWXMLRPCRequest *)asyncRequestFor:(DWUser *)user withMethod:(NSString *)method andArgs:(NSDictionary *)args withObject:(id)what andSelector:(SEL)sel andArg:(id)arg {
-    DWXMLRPCRequest *req = [DWXMLRPCRequest new];
-    req.user = user;
-    req.method = method;
-    req.args = args;
-    
-    req.object = what;
-    req.selector = sel;
-    req.cbArg = arg;
-    
+    DWXMLRPCRequest *req = [[DWXMLRPCRequest alloc] initAsyncRequest:user withMethod:method andArgs:args withObject:what andSelector:sel andArg:arg];
     [req call];
     return req;
 }
@@ -143,9 +124,11 @@ static BOOL _synchronous;
         if (self.delegate) {
             self.complete = YES;
             [self.delegate asyncRequest:self didReceiveResponse:response];
+            [self autorelease]; // We retain ourselves, and now we're done with ourselves.
         } else if (self.object && [self.object respondsToSelector:self.selector]) {
             IMP test = [self.object methodForSelector:self.selector];
             test(self.object, self.selector, self, self.cbArg, nil, response);
+            [self autorelease]; // We retain ourselves, and now we're done with ourselves.
         }
     } else { // Just assume this is the challenge response.
         hasChallenge = YES;
@@ -153,9 +136,11 @@ static BOOL _synchronous;
             if (self.delegate) {
                 self.failed = YES;
                 [self.delegate asyncRequest:self didReceiveResponse:response];
+                [self autorelease]; // We retain ourselves, and now we're done with ourselves.
             } else if (self.object && [self.object respondsToSelector:self.selector]) {
                 IMP test = [self.object methodForSelector:self.selector];
                 test(self.object, self.selector, self, self.cbArg, nil, response);
+                [self autorelease]; // We retain ourselves, and now we're done with ourselves.
             }
         } else {
             NSString *challenge = [[response object] objectForKey:@"challenge"];
@@ -181,5 +166,29 @@ static BOOL _synchronous;
 // FIXME: No idea what to do with these.
 - (void)request: (XMLRPCRequest *)request didReceiveAuthenticationChallenge: (NSURLAuthenticationChallenge *)challenge {}
 - (void)request: (XMLRPCRequest *)request didCancelAuthenticationChallenge: (NSURLAuthenticationChallenge *)challenge {}
+
+#pragma mark Gettters/Setters
+
+-(DWUser *)user { return user; }
+-(NSString *)method { return method; }
+
+-(NSDictionary *)args { return args; }
+-(void)setArgs:(NSDictionary *)val { SETTER_COPY(args); }
+
+-(id<DWXMLRPCRequestDelegate>)delegate { return delegate; }
+-(void)setDelegate:(id<DWXMLRPCRequestDelegate>)val { SETTER_ASSIGN(delegate); }
+
+-(id)object { return object; }
+-(SEL)selector { return selector; }
+-(id)cbArg { return cbArg; }
+
+-(BOOL)complete { return complete; }
+-(void)setComplete:(BOOL)val { SETTER_ASSIGN(complete); }
+
+-(BOOL)failed { return failed; }
+-(void)setFailed:(BOOL)val { SETTER_ASSIGN(failed); }
+
+-(XMLRPCRequest *)request { return request; }
+-(void)setRequest:(XMLRPCRequest *)val { SETTER_RETAIN(request); }
 
 @end
